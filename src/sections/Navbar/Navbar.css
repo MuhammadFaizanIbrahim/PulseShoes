@@ -11,7 +11,7 @@ html {
   display: flex;
   height: 7rem;
   padding: 0 3rem 0 10rem;
-  gap: 15rem;
+  gap: 20rem;
   background-color: transparent;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
@@ -60,7 +60,7 @@ p {
     right: 0;
     height: 7rem;
     padding: 0 3rem 0 3rem;
-    gap: 12rem;
+    gap: 16rem;
     width: 100vw;
   }
 
