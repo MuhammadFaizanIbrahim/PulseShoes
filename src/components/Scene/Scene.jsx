@@ -58,11 +58,11 @@ const Scene = ({ color, modelRef }) => {
       tl.to(shoeModelRef.current.position, { x: -0.5, y: -2.2, ease: "power1.out" }, 0);
       tl.to(shoeModelRef.current.rotation, { y: -1.5, ease: "power1.out" }, "<");
     
-      // tl.to(shoeModelRef.current.position, { x: -0.5, y: -2.2, ease: "power1.out" }, 0.35);
-      // tl.to(shoeModelRef.current.rotation, { y: 1, x: -0.1, z: 0, ease: "power1.out" }, "<");
+      tl.to(shoeModelRef.current.position, { x: -0.5, y: -2.2, ease: "power1.out" }, 0.35);
+      tl.to(shoeModelRef.current.rotation, { y: 1, x: -0.1, z: 0, ease: "power1.out" }, "<");
 
-      // tl.to(shoeModelRef.current.position, { x: -0.5, y: -2.2, z: 1.5, ease: "power1.out" }, 0.9);
-      // tl.to(shoeModelRef.current.rotation, { y: 2.2, z: -0.1, x: 0.5, ease: "power1.out" }, "<");
+      tl.to(shoeModelRef.current.position, { x: -0.5, y: -2.2, z: 1.5, ease: "power1.out" }, 0.9);
+      tl.to(shoeModelRef.current.rotation, { y: 2.2, z: -0.1, x: 0.5, ease: "power1.out" }, "<");
     }
     if(isDesktop)
     {

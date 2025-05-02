@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './Carousel.css';
 
 const images = [
-  '../../../public/shoeImages/black1.png',
-  '../../../public/shoeImages/parrot1.png',
-  '../../../public/shoeImages/red1.png',
-  '../../../public/shoeImages/blue1.png',
-  '../../../public/shoeImages/green1.png',
+  '/shoeImages/black1.png',
+  '/shoeImages/parrot1.png',
+  '/shoeImages/red1.png',
+  '/shoeImages/blue1.png',
+  '/shoeImages/green1.png',
 ];
 
 const Carousel = () => {
