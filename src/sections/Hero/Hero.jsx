@@ -8,6 +8,8 @@ import { useProgress } from "@react-three/drei";
 
 const LoaderOverlay = () => {
   const { progress } = useProgress();
+  if (progress === 100) return null; // Hide when loading is done
+
   return (
     <div className="loader-container">
       <h2>Loading {Math.floor(progress)}%</h2>
