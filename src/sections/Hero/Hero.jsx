@@ -23,7 +23,7 @@ const Hero = () => {
     { sole: "black", lace: "black", logo: "black", base: "black" },
   ]);
   const shoeRef = useRef();
-  const colorOptions = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71"];
+  const colorOptions = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71", "orange"];
 
   const handleScrollToCustomize = () => {
     const section = document.getElementById("customize");
@@ -33,7 +33,7 @@ const Hero = () => {
   };
 
   const handleColorChange = () => {
-    const colors = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71"];
+    const colors = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71", "orange"];
     const currentIndex = colors.indexOf(shoeColor);
     const nextColor = colors[(currentIndex + 1) % colors.length];
     setShoeColor(nextColor);
