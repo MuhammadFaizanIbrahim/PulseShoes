@@ -17,6 +17,8 @@ const Scene = ({ color, modelRef }) => {
   }, [modelRef]);
 
   useGSAP(() => {
+    if (typeof window === 'undefined') return;
+  
     const model = shoeModelRef.current;
     if (!model) return;
   
@@ -76,15 +78,14 @@ const Scene = ({ color, modelRef }) => {
       }
     }
   
-    // Refresh to ensure all scroll positions are recalculated
     ScrollTrigger.refresh();
   
-    // Optional cleanup
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       gsap.globalTimeline.clear();
     };
-  }, []); // useGSAP at top-level
+  }, []);
+  
 
   return (
     <>
