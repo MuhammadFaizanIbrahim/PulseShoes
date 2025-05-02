@@ -16,6 +16,7 @@ const Scene = ({ color, modelRef }) => {
     }
   }, [modelRef]);
 
+  
   useGSAP(() => {
     if (!shoeModelRef.current) return;
 
@@ -31,13 +32,24 @@ const Scene = ({ color, modelRef }) => {
       }
     };
     
-    ScrollTrigger.create({
-      trigger: ".canvas-pin-container",
-      start: "top top",
-      end: getScrollEndValue(),
-      pin: true,
-      pinSpacing: false,
-    });
+    // ScrollTrigger.create({
+    //   trigger: ".canvas-pin-container",
+    //   start: "top top",
+    //   end: getScrollEndValue(),
+    //   pin: true,
+    //   pinSpacing: false,
+    // });
+
+    const pinContainer = document.querySelector(".canvas-pin-container");
+    if (pinContainer) {
+      ScrollTrigger.create({
+        trigger: pinContainer,
+        start: "top top",
+        end: getScrollEndValue(),
+        pin: true,
+        pinSpacing: false,
+      });
+    }
 
     const hero1 = document.querySelector(".Hero1");
     const hero5 = document.querySelector(".Hero5");
@@ -94,7 +106,7 @@ if (hero1 && hero5) {
   
 }
   ScrollTrigger.refresh();
-  }, []);
+  }, 100);
 
   return (
     <>
