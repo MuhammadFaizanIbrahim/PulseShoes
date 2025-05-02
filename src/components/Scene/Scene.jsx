@@ -16,6 +16,16 @@ const Scene = ({ color, modelRef }) => {
     }
   }, [modelRef]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("🔍 Checking shoeModelRef.current:", shoeModelRef.current);
+    }, 500); // Check every 500ms
+  
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+  
+
   useGSAP(() => {
     if (typeof window === 'undefined') {
       console.log('❌ window is undefined');
