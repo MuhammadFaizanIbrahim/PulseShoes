@@ -1,0 +1,243 @@
+.carousel-wrapper {
+  width: 98.8vw;
+  height: 100vh;
+  text-align: center;
+  margin: 10rem 0;
+  align-items: center;
+  justify-content: center;
+  background-color: #65636339;
+  border-top: 1px solid rgba(255, 255, 255, 0.216);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.216);
+}
+
+.carousel-title {
+  font-size: 7rem;
+  font-weight: bold;
+  width: 80vw;
+  margin-left: 10%;
+  margin-top: 4%;
+  color: #09f130;
+  /* background-color: aliceblue; */
+  margin-bottom: 5px;
+  font-family: 'ClashFont', sans-serif;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: 5px;
+  animation: pulseTitle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseTitle {
+  0% {
+    transform: scale(1);
+    color: #bbff00;
+  }
+  100% {
+    transform: scale(1.03);
+    color: white;
+  }
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid rgba(255, 255, 255, 0.21); */
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* position: relative; */
+  perspective: 1200px;
+}
+
+.slide {
+  position: absolute;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  border-radius: 16px;
+  border: 1px solid white;
+  box-shadow: 0 4px 20px rgba(172, 255, 47, 0.52);
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(0.5) translateX(0);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1.1);
+  z-index: 3;
+}
+
+.slide.prev {
+  opacity: 0.8;
+  transform: scale(0.8) translateX(-220px) rotateY(20deg);
+  z-index: 2;
+}
+
+.slide.next {
+  opacity: 0.8;
+  transform: scale(0.8) translateX(220px) rotateY(-20deg);
+  z-index: 2;
+}
+
+.slide.hidden {
+  display: none;
+}
+
+.nav {
+  background: transparent;
+  border: 1px solid rgba(172, 255, 47, 0.551);
+  font-size: 2rem;
+  padding: 10px 16px;
+  border-radius: 5%;
+  cursor: pointer;
+  z-index: 4;
+  transition: background 0.3s;
+}
+
+.nav:hover {
+  background: rgba(153, 255, 1, 0.785);
+  border: 1px solid white;
+}
+
+.nav.left {
+  margin-right: 10px;
+  color: rgba(172, 255, 47, 0.551);
+}
+
+.nav.left:hover {
+  color: white;
+  border: 1px solid white;
+}
+
+.nav.right {
+  margin-left: 10px;
+  color: rgba(172, 255, 47, 0.551);
+}
+
+.nav.right:hover {
+  color: white;
+  border: 1px solid white;
+}
+
+@media (min-width: 901px) and (max-width: 1550px) {
+  .carousel-wrapper {
+    width: 98.8vw;
+    height: 100vh;
+    margin: 10rem 0;
+  }
+  
+  .carousel-title {
+    font-size: 5rem;
+    width: 80vw;
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-bottom: 5px;
+    letter-spacing: 5px;
+  }
+  
+  
+  .carousel-container {
+    width: 100%;
+    height: 80%;
+    max-width: 1100px;
+  }
+  
+  .carousel {
+    width: 100%;
+    perspective: 1200px;
+  }
+  
+  .slide {
+    width: 350px;
+    height: 350px;
+  }
+      
+  .nav {
+    font-size: 2rem;
+    padding: 10px 16px;
+    border-radius: 5%;
+  }
+  
+  .nav.left {
+    margin-right: 7px;
+  }
+   
+    .nav.right {
+    margin-left: 7px;
+  }
+    
+}
+
+@media (max-width: 767px) {
+
+  .carousel-wrapper {
+    width: 98.8vw;
+    height: 60vh;
+    margin: 10rem 0;
+  }
+  
+  .carousel-title {
+    font-size: 2rem;
+    width: 80vw;
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-bottom: 0px;
+    letter-spacing: 5px;
+  text-decoration: none;
+  }
+  
+  
+  .carousel-container {
+    width: 100%;
+    height: 80%;
+    max-width: 1100px;
+    margin-top: 0%;
+  }
+  
+  .carousel {
+    width: 100%;
+    perspective: 1200px;
+  }
+  
+  .slide {
+    width: 250px;
+    height: 250px;
+  }
+      
+  .nav {
+    font-size: 2rem;
+    padding: 10px 16px;
+    border-radius: 5%;
+    background-color: rgba(153, 255, 1, 0.785);
+  }
+  
+  .nav.left {
+    margin-right: 7px;
+    color: white;
+  }
+   
+    .nav.right {
+    margin-left: 7px;
+    color: white;
+  }
+
+  .nav.left:hover {
+    background-color: transparent;
+  }
+   
+    .nav.right:hover {
+      background-color: transparent;
+  }
+
+}

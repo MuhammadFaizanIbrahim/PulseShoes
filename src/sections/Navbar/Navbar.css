@@ -1,0 +1,134 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.fullNavbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  height: 7rem;
+  padding: 0 3rem 0 10rem;
+  gap: 15rem;
+  background-color: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* This class gets added on scroll */
+.fullNavbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.179); /* semi-transparent */
+  backdrop-filter: blur(10px); /* blur effect */
+}
+
+p {
+  font-size: 20px;
+  font-family: "ClashFont", sans-serif;
+  font-weight: 500;
+  color: white;
+}
+
+.fullNavbar a {
+  text-decoration: none;
+}
+
+.navbarLeft {
+  display: flex;
+  gap: 15rem;
+  margin-top: 1rem;
+}
+
+.navbarMiddle {
+  margin-top: -0.5rem;
+}
+
+.logo {
+  height: 120px;
+}
+
+.navbarRight {
+  display: flex;
+  gap: 15rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 901px) and (max-width: 1550px) {
+  .fullNavbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7rem;
+    padding: 0 3rem 0 3rem;
+    gap: 12rem;
+    width: 100vw;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .navbarLeft {
+    gap: 12rem;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    height: 100px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .navbarRight {
+    gap: 12rem;
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  /* MOBILE VIEW ONLY */
+
+  .navbarLeft,
+  .navbarMiddle,
+  .navbarRight {
+    display: none;
+  }
+
+  .mobileNavbar {
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 1%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+  }
+
+  .mobileLogo {
+    height: 70px;
+  }
+
+  .mobileMenuIcon {
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .mobileMenuList {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(20, 20, 20, 0.9);
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 80%;
+    left: 1%;
+    width: 80vw;
+    z-index: 1000;
+    border: 1px solid rgb(172, 255, 47, 0.551);
+  }
+
+  .mobileMenuList a {
+    margin: 1rem 0;
+    text-decoration: none;
+  }
+}

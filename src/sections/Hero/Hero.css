@@ -1,0 +1,730 @@
+.fullHero {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "ClashFont", sans-serif;
+  margin-top: -0.5rem;
+}
+
+.Hero1 {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative; /* <-- ADD THIS */
+}
+
+.Hero1Right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25rem;
+  margin-left: 16rem;
+  height: 50%;
+  width: auto;
+  gap: 1rem;
+}
+
+.Hero1RightBigText {
+  text-transform: uppercase;
+  font-size: 7rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  line-height: 85%;
+}
+
+.Hero1RightSmallText {
+  font-size: 2rem;
+}
+
+.customizerButton {
+  margin-top: 2rem;
+  background: transparent;
+  color: white;
+  border: 4px solid white;
+  padding: 12px 24px;
+  font-size: 20px;
+  font-family: "ClashFont", sans-serif;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.customizerButton:hover {
+  transform: scale(1.05);
+  background-color: #424242b3;
+}
+
+.Hero1Left {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  gap: 1rem;
+  margin-left: 33rem;
+}
+
+.strip1 {
+  width: 50px;
+  height: 40%;
+  background-color: white;
+}
+.strip2 {
+  width: 50px;
+  height: 48%;
+  background-color: white;
+}
+.strip3 {
+  width: 50px; /* thickness of the strip */
+  height: 56%; /* goes from top to middle */
+  background-color: white;
+}
+
+.HeroShoes {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1; 
+  pointer-events: none;
+}
+/* 
+.HeroShoes canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+.canvas-pin-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.color-btn {
+  position: absolute;
+  /* bottom: 20px; */
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: white;
+  border: 2px solid;
+  border-image: linear-gradient(90deg, #ff3cef, #3498db, #2ecc71, #ceff3c) 1;
+  border-radius: 40px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: "ClashFont", sans-serif;
+  cursor: pointer;
+  z-index: 999;
+  background-size: 400% 400%;
+  animation: borderGlow 4s linear infinite;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.color-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.color-btn .arrow {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+/* Glowing border animation */
+@keyframes borderGlow {
+  0% {
+    border-image-source: linear-gradient(
+      90deg,
+      #ff3cef,
+      #3498db,
+      #2ecc71,
+      #ceff3c
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      450deg,
+      #ff3cef,
+      #3498db,
+      #2ecc71,
+      #ceff3c
+    );
+  }
+}
+
+.Hero2 {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+  margin-top: -8%;
+}
+
+.Hero2Left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.Hero2Right {
+  display: flex;
+  width: 50%;
+}
+
+.Hero2Left h1 {
+  font-size: 70px;
+  margin-bottom: -0.5rem;
+}
+
+.Hero2Left p {
+  width: 80%;
+  font-weight: 300;
+}
+
+.Hero3 {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+  margin-top: -8%;
+}
+
+.Hero3Right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.Hero3Left {
+  display: flex;
+  width: 50%;
+}
+
+.Hero3Right h1 {
+  font-size: 70px;
+  margin-bottom: -0.5rem;
+}
+
+.Hero3Right p {
+  width: 80%;
+}
+
+.Hero4 {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+  /* margin-top: -5%; */
+}
+
+.Hero4ContainorLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-left: 10%;
+}
+
+.white-bordered-box {
+  width: 60vw;
+  height: 70vh;
+  border: 3px solid white;
+  border-radius: 12px;
+  background-color: transparent;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.customizer-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.Hero4ContainorRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.customization-box {
+  width: 300px;
+  height: 450px;
+  margin-top: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #65636339;
+  padding: 1.5rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.color-option-group {
+  margin-bottom: 1.5rem;
+  z-index: 999;
+}
+
+.color-option-group h4 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  z-index: 999;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  border-color: #000;
+}
+
+.Hero5 {
+  display: flex;
+  width: 100%;
+  height: 5vh;
+  z-index: 1;
+  margin-top: -5%;
+}
+
+.Hero3_2 {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  z-index: 1;
+  margin-top: -5%;
+}
+
+.buyButton {
+  margin-top: 2rem;
+  background: transparent;
+  color: white;
+  width: 50%;
+  border: 4px solid white;
+  padding: 12px 12px;
+  font-size: 20px;
+  font-family: "ClashFont", sans-serif;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.buyButton:hover {
+  transform: scale(1.05);
+  background-color: #424242b3;
+}
+
+@media (min-width: 901px) and (max-width: 1550px) {
+  .fullHero {
+    margin-top: -0.5rem;
+  }
+
+  .Hero1 {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .Hero1Right {
+    margin-top: 20rem;
+    margin-left: 16rem;
+    height: 50%;
+    width: auto;
+    gap: 1rem;
+  }
+
+  .Hero1RightBigText {
+    font-size: 5rem;
+    letter-spacing: -2px;
+    line-height: 85%;
+  }
+
+  .Hero1RightSmallText {
+    font-size: 1.5rem;
+  }
+
+  .customizerButton {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+
+
+  .Hero1Left {
+    height: 100vh;
+    gap: 1rem;
+    margin-left: 20rem;
+  }
+
+  .strip1 {
+    width: 40px;
+    height: 40%;
+  }
+  .strip2 {
+    width: 40px;
+    height: 48%;
+  }
+  .strip3 {
+    width: 40px;
+    height: 56%;
+  }
+
+  .HeroShoes {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .HeroShoes canvas {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .color-btn {
+    bottom: 20px;
+    left: 50%;
+    padding: 10px 20px;
+    font-size: 16px;  
+  }
+
+  .color-btn .arrow {
+    margin-left: 8px;
+    font-size: 18px;
+  }
+
+  .Hero2 {
+    width: 100%;
+    height: 80vh;
+    margin-top: -3%;
+  }
+
+  .Hero2Left {
+    width: 50%;
+  }
+
+  .Hero2Right {
+    width: 50%;
+  }
+
+  .Hero2Left h1 {
+    font-size: 55px;
+    margin-bottom: -0.5rem;
+  }
+
+  .Hero2Left p {
+    width: 80%;
+    font-weight: 300;
+  }
+
+  .Hero3 {
+    width: 100%;
+    height: 80vh;
+    margin-top: -8%;
+  }
+
+  .Hero3Right {
+    width: 50%;
+  }
+
+  .Hero3Left {
+    width: 50%;
+  }
+
+  .Hero3Right h1 {
+    font-size: 70px;
+    margin-bottom: -0.5rem;
+  }
+
+  .Hero3Right p {
+    width: 80%;
+    font-weight: 300;
+  }
+
+  .Hero3_2{
+    height: 13vh;
+  }
+
+  .Hero4 {
+    width: 100%;
+    height: 80vh;
+  }
+
+  .Hero4ContainorLeft {
+    padding: 0rem;
+    margin-left: 8%;
+  }
+
+  .white-bordered-box {
+    width: 60vw;
+    height: 80vh;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .customizer-title {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .Hero4ContainorRight {
+    padding: 2rem;
+  }
+
+  .customization-box {
+    width: 300px;
+    height: 430px;
+    margin-top: 10%;
+    padding: 1.5rem;
+  }
+
+  .buyButton{
+    padding: 8px;
+    width: 40%;
+  }
+
+  .color-option-group {
+    margin-bottom: 1.5rem;
+  }
+
+
+  .Hero5 {
+    width: 100%;
+    height: 5vh;
+    margin-top: -5%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullHero {
+    margin-top: -0.5rem;
+  }
+
+  .Hero1 {
+    height: 100vh;
+    width: 100vw;
+    /* background-color: #3498db; */
+  }
+
+  .Hero1Right {
+    margin-top: 22rem;
+    margin-left: 0rem;
+    height: auto;
+    width: auto;
+    gap: 1rem;
+    /* background-color: #2ecc71; */
+  }
+
+  .Hero1RightBigText {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 80%;
+  }
+  
+
+  .Hero1RightSmallText {
+    font-size: 0.7rem;
+  }
+
+  .customizerButton {
+    margin-top: 1rem;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+
+  .Hero1Left {
+    height: 70vh;
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+
+  .strip1 {
+    width: 20px;
+    height: 30%;
+  }
+  .strip2 {
+    width: 20px;
+    height: 38%;
+  }
+  .strip3 {
+    width: 20px;
+    height: 45%;
+  }
+
+  .HeroShoes {
+    top: 0;
+    left: 0;
+    width: 30vw;
+    height: 100vh;
+  }
+
+  .HeroShoes canvas {
+    width: 30%;
+    height: 30%;
+    top: 0;
+    left: 0;
+  }
+
+  .canvas-pin-container{
+    width: 100%;
+    height: 100%;
+    /* top: 5%; */
+    /* margin-left: 5rem; */
+    /* background-color: #2ecc71; */
+  }
+
+  .color-btn {
+    /* bottom: 20px; */
+    left: 65%;
+    top: 57%;
+    padding: 4px 14px;
+    font-size: 13px;  
+  }
+
+  .color-btn .arrow {
+    margin-left: 8px;
+    font-size: 18px;
+  }
+
+  .Hero2 {
+    width: 100vw;
+    height: 80vh;
+    margin-top: -20%;
+    /* background-color: #2ecc71; */
+    flex-direction: column;
+  }
+
+  .Hero2Left {
+    width: 100%;
+    /* background-color: #3498db; */
+  }
+
+  .Hero2Right {
+    width: 100%;
+  }
+
+  .Hero2Left h1 {
+    font-size: 35px;
+    margin-top: -2rem;
+    font-weight: 600;
+  }
+
+  .Hero2Left p {
+    width: 100%;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  .Hero3 {
+    width: 100vw;
+    height: 80vh;
+    margin-top: -8%;
+    flex-direction: column;
+  }
+
+  .Hero3Right {
+    width: 100%;
+  }
+
+  .Hero3Left {
+    width: 100%;
+  }
+
+  .Hero3Right h1 {
+    font-size: 35px;
+    margin-top: -2rem;
+    font-weight: 600;
+  }
+
+  .Hero3Right p {
+    width: 100%;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  .Hero3_2{
+    height: 10px;
+  }
+
+  .Hero4 {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+  .Hero4ContainorLeft {
+    padding: 0rem;
+    margin-left: -15px;
+  }
+
+  .white-bordered-box {
+    width: 97vw;
+    height: 60vh;
+    margin-top: 0rem;
+  }
+
+  .customizer-title {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .Hero4ContainorRight {
+    padding: 2rem;
+  }
+
+  .customization-box {
+    width: 300px;
+    height: 430px;
+    margin-top: 0;
+    padding: 1.5rem;
+  }
+
+  .buyButton{
+    padding: 8px;
+    width: 40%;
+  }
+
+  .color-option-group {
+    margin-bottom: 1.5rem;
+  }
+
+
+  .Hero5 {
+    width: 100%;
+    height: 5vh;
+    margin-top: 10%;
+  }
+}
