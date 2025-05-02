@@ -25,8 +25,8 @@ const Scene = ({ color, modelRef }) => {
     console.log('✅ window is accessible:', window);
   
     const model = shoeModelRef.current;
-    if (!model) {
-      console.log('⚠️ shoeModelRef is null');
+    if (!shoeModelRef.current) {
+      console.warn("shoeModelRef is null - skipping GSAP init");
       return;
     }
   
@@ -97,7 +97,7 @@ const Scene = ({ color, modelRef }) => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       gsap.globalTimeline.clear();
     };
-  }, []);
+  }, [shoeModelRef.current]);
   
 
   return (
