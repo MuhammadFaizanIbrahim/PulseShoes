@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export const Shoe = forwardRef(({ color = "black" }, ref) => {
-  const { nodes, materials } = useGLTF("/model/basketball_shoe.glb");
+  const { nodes, materials } = useGLTF("/model/basketball_shoe2.glb");
 
   const baseRef = useRef(); // GSAP will control this
   const floatRef = useRef(); // useFrame will animate this
@@ -200,4 +200,4 @@ export const Shoe = forwardRef(({ color = "black" }, ref) => {
   );
 });
 
-useGLTF.preload("/model/basketball_shoe.glb");
+useGLTF.preload("/model/basketball_shoe2.glb");
