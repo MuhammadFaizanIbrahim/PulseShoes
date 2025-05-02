@@ -1,18 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { Suspense, useState, useEffect, useRef } from "react";
 import "./Hero.css";
 import { Canvas } from "@react-three/fiber";
 import Scene from "../../components/Scene/Scene";
 import gsap from "gsap";
+import { useProgress } from "@react-three/drei";
+
+
+const LoaderOverlay = () => {
+  const { progress } = useProgress();
+  return (
+    <div className="loader-container">
+      <h2>Loading {Math.floor(progress)}%</h2>
+    </div>
+  );
+};
 
 const Hero = () => {
   const [shoeColor, setShoeColor] = useState("black");
-  const [shoeColorForParts, setShoeColorForParts] = useState([{sole: "black",
-  lace: "black",
-  logo: "black",
-  base: "black",}]);
+  const [shoeColorForParts, setShoeColorForParts] = useState([
+    { sole: "black", lace: "black", logo: "black", base: "black" },
+  ]);
   const shoeRef = useRef();
   const colorOptions = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71"];
-
 
   const handleScrollToCustomize = () => {
     const section = document.getElementById("customize");
@@ -55,11 +64,15 @@ const Hero = () => {
           <div className="strip3"></div>
         </div>
         <div className="HeroShoes">
-          <div className="canvas-pin-container">
-            <Canvas>
-              <Scene color={shoeColor} modelRef={shoeRef} />
-            </Canvas>
-          </div>
+        <div className="canvas-pin-container" style={{ position: "relative" }}>
+  <LoaderOverlay /> {/* ✅ This goes outside the Canvas */}
+  <Canvas>
+    <Suspense fallback={null}> {/* fallback now not needed here */}
+      <Scene color={shoeColor} modelRef={shoeRef} />
+    </Suspense>
+  </Canvas>
+</div>
+
         </div>
         <button className="color-btn" onClick={handleColorChange}>
           Next Color <span className="arrow">→</span>
@@ -170,11 +183,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <button
-            className="buyButton"            
-          >
-            Shop Now
-          </button>
+          <button className="buyButton">Shop Now</button>
         </div>
       </div>
       <div className="Hero5"></div>
