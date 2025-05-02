@@ -39,6 +39,10 @@ const Scene = ({ color, modelRef }) => {
       pinSpacing: false,
     });
 
+    const hero1 = document.querySelector(".Hero1");
+    const hero5 = document.querySelector(".Hero5");
+
+if (hero1 && hero5) {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".Hero1",
@@ -88,7 +92,7 @@ const Scene = ({ color, modelRef }) => {
       tl.to(shoeModelRef.current.rotation, { y: 2.2, z: -0.1, x: 0.5, ease: "power1.out" }, "<");
   }
   
-
+}
   ScrollTrigger.refresh();
   }, []);
 
