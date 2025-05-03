@@ -53,19 +53,19 @@ const Hero = () => {
   const handleSaveConfiguration = () => {
     const configJSON = JSON.stringify(shoeColorForParts);
     localStorage.setItem("savedShoeConfig", configJSON);
-    alert("Configuration saved!");
+    alert("Purchased!");
   };
 
-  const handleResetColors = () => {
-    console.log("Resetting to default colors");
-    setShoeColorForParts({
-      front: "aqua",
-      stripe: "aqua",
-      lace: "aqua",
-      logo: "aqua",
-      sole: "aqua",
-    });
-  };
+  // const handleResetColors = () => {
+  //   console.log("Resetting to default colors");
+  //   setShoeColorForParts({
+  //     front: "aqua",
+  //     stripe: "aqua",
+  //     lace: "aqua",
+  //     logo: "aqua",
+  //     sole: "aqua",
+  //   });
+  // };
   
 
   const handleColorChange = () => {
@@ -254,10 +254,10 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="customizerButtons">
-          <button className="buyButton" onClick={handleResetColors}>Reset</button>
-          <button className="buyButton" onClick={handleSaveConfiguration}>Save Now</button>
-          </div>
+          {/* <div className="customizerButtons"> */}
+          {/* <button className="buyButton" onClick={handleResetColors}>Reset</button> */}
+          <button className="buyButton" onClick={handleSaveConfiguration}>Shop Now</button>
+          {/* </div> */}
         </div>
       </div>
       <div className="Hero5"></div>

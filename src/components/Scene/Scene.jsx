@@ -33,9 +33,9 @@ const Scene = ({ colorForParts, startColorForParts, color, modelRef }) => {
 
     const getScrollEndValue = () => {
       const width = window.innerWidth;
-      if (width >= 1550) return "+=2150";
+      if (width >= 1550) return "+=2200";
       else if (width >= 900 && width <= 1550) return "+=1770";
-      else return "+=2000";
+      else return "+=2200";
     };
 
     const pinContainer = document.querySelector(".canvas-pin-container");
@@ -72,10 +72,10 @@ const Scene = ({ colorForParts, startColorForParts, color, modelRef }) => {
     if (isMobile) {
       tl.to(model.position, { x: -0.5, y: -2.2 }, 0);
       tl.to(model.rotation, { y: -1.5 }, "<");
-      tl.to(model.position, { x: -0.5, y: -2.2 }, 0.35);
-      tl.to(model.rotation, { y: 1, x: -0.1, z: 0 }, "<");
-      tl.to(model.position, { x: -0.5, y: -2.2, z: 1.5 }, 0.9);
-      tl.to(model.rotation, { y: 2.2, z: -0.1, x: 0.5 }, "<");
+      // tl.to(model.position, { x: -0.5, y: -2.2 }, 0.35);
+      // tl.to(model.rotation, { y: 1, x: -0.1, z: 0 }, "<");
+      // tl.to(model.position, { x: -0.5, y: -2.2, z: 1.5 }, 0.9);
+      // tl.to(model.rotation, { y: 2.2, z: -0.1, x: 0.5 }, "<");
     }
 
     if (isLaptop || isDesktop) {
