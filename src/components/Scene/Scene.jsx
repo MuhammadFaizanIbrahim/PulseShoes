@@ -6,7 +6,7 @@ import { Shoe } from "../Shoe/Shoe";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Scene = ({ color, modelRef }) => {
+const Scene = ({ colorForParts, startColorForParts, color, modelRef }) => {
   const shoeModelRef = useRef();
   const [isModelReady, setIsModelReady] = useState(false);
 
@@ -105,7 +105,7 @@ const Scene = ({ color, modelRef }) => {
         position={[0, 0, 10]}
       />
       <Environment preset="city" />
-      <Shoe color={color} ref={shoeModelRef} />
+      <Shoe color={color} ref={shoeModelRef} startColorForParts={startColorForParts} colorForParts={colorForParts} />
     </>
   );
 };

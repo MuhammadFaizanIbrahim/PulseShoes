@@ -5,7 +5,6 @@ import Scene from "../../components/Scene/Scene";
 import gsap from "gsap";
 import { useProgress } from "@react-three/drei";
 
-
 const LoaderOverlay = () => {
   const { progress } = useProgress();
   if (progress === 100) return null; // Hide when loading is done
@@ -19,11 +18,30 @@ const LoaderOverlay = () => {
 
 const Hero = () => {
   const [shoeColor, setShoeColor] = useState("black");
-  const [shoeColorForParts, setShoeColorForParts] = useState([
-    { sole: "black", lace: "black", logo: "black", base: "black" },
-  ]);
+  const [startColorForParts, setStartColorForParts] = useState(0);
+  const [shoeColorForParts, setShoeColorForParts] = useState({
+    front: "aqua",
+    stripe: "aqua",
+    lace: "aqua",
+    logo: "aqua",
+    sole: "aqua",
+  });
+
   const shoeRef = useRef();
-  const colorOptions = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71", "orange"];
+  const colorOptions = [
+    "black",
+    "#3B8C97",
+    "#ff3c3c",
+    "#013AD3",
+    "#2ecc71",
+    "orange",
+    "white",
+  ];
+
+  const handlePartColorChange = (part, color, start) => {
+    setShoeColorForParts((prev) => ({ ...prev, [part]: color }));
+    setStartColorForParts(start);
+  };
 
   const handleScrollToCustomize = () => {
     const section = document.getElementById("customize");
@@ -32,8 +50,33 @@ const Hero = () => {
     }
   };
 
+  const handleSaveConfiguration = () => {
+    const configJSON = JSON.stringify(shoeColorForParts);
+    localStorage.setItem("savedShoeConfig", configJSON);
+    alert("Configuration saved!");
+  };
+
+  const handleResetColors = () => {
+    console.log("Resetting to default colors");
+    setShoeColorForParts({
+      front: "aqua",
+      stripe: "aqua",
+      lace: "aqua",
+      logo: "aqua",
+      sole: "aqua",
+    });
+  };
+  
+
   const handleColorChange = () => {
-    const colors = ["black", "#3B8C97", "#ff3c3c", "#013AD3", "#2ecc71", "orange"];
+    const colors = [
+      "black",
+      "#3B8C97",
+      "#ff3c3c",
+      "#013AD3",
+      "#2ecc71",
+      "orange",
+    ];
     const currentIndex = colors.indexOf(shoeColor);
     const nextColor = colors[(currentIndex + 1) % colors.length];
     setShoeColor(nextColor);
@@ -66,15 +109,24 @@ const Hero = () => {
           <div className="strip3"></div>
         </div>
         <div className="HeroShoes">
-        <div className="canvas-pin-container" style={{ position: "relative" }}>
-  <LoaderOverlay /> {/* ✅ This goes outside the Canvas */}
-  <Canvas>
-    <Suspense fallback={null}> {/* fallback now not needed here */}
-      <Scene color={shoeColor} modelRef={shoeRef} />
-    </Suspense>
-  </Canvas>
-</div>
-
+          <div
+            className="canvas-pin-container"
+            style={{ position: "relative" }}
+          >
+            <LoaderOverlay /> {/* ✅ This goes outside the Canvas */}
+            <Canvas>
+              <Suspense fallback={null}>
+                {" "}
+                {/* fallback now not needed here */}
+                <Scene
+                  colorForParts={shoeColorForParts}
+                  startColorForParts={startColorForParts}
+                  color={shoeColor}
+                  modelRef={shoeRef}
+                />
+              </Suspense>
+            </Canvas>
+          </div>
         </div>
         <button className="color-btn" onClick={handleColorChange}>
           Next Color <span className="arrow">→</span>
@@ -134,6 +186,33 @@ const Hero = () => {
           <div className="customization-box">
             <h2>Customize Your Shoe</h2>
             <div className="color-option-group">
+              <h4>Front Color</h4>
+              <div className="color-options">
+                {colorOptions.map((color, index) => (
+                  <div
+                    key={index}
+                    className="color-swatch"
+                    style={{ backgroundColor: color }}
+                    onClick={() => handlePartColorChange("front", color, 1)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="color-option-group">
+              <h4>Stripes Color</h4>
+              <div className="color-options">
+                {colorOptions.map((color, index) => (
+                  <div
+                    key={index}
+                    className="color-swatch"
+                    style={{ backgroundColor: color }}
+                    onClick={() => handlePartColorChange("stripe", color, 1)}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="color-option-group">
               <h4>Sole Color</h4>
               <div className="color-options">
                 {colorOptions.map((color, index) => (
@@ -141,7 +220,8 @@ const Hero = () => {
                     key={index}
                     className="color-swatch"
                     style={{ backgroundColor: color }}
-                  ></div>
+                    onClick={() => handlePartColorChange("sole", color, 1)}
+                  />
                 ))}
               </div>
             </div>
@@ -154,7 +234,8 @@ const Hero = () => {
                     key={index}
                     className="color-swatch"
                     style={{ backgroundColor: color }}
-                  ></div>
+                    onClick={() => handlePartColorChange("lace", color, 1)}
+                  />
                 ))}
               </div>
             </div>
@@ -167,25 +248,16 @@ const Hero = () => {
                     key={index}
                     className="color-swatch"
                     style={{ backgroundColor: color }}
-                  ></div>
-                ))}
-              </div>
-            </div>
-
-            <div className="color-option-group">
-              <h4>Base Color</h4>
-              <div className="color-options">
-                {colorOptions.map((color, index) => (
-                  <div
-                    key={index}
-                    className="color-swatch"
-                    style={{ backgroundColor: color }}
-                  ></div>
+                    onClick={() => handlePartColorChange("logo", color, 1)}
+                  />
                 ))}
               </div>
             </div>
           </div>
-          <button className="buyButton">Shop Now</button>
+          <div className="customizerButtons">
+          <button className="buyButton" onClick={handleResetColors}>Reset</button>
+          <button className="buyButton" onClick={handleSaveConfiguration}>Save Now</button>
+          </div>
         </div>
       </div>
       <div className="Hero5"></div>
